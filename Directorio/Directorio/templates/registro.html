@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Wheel tracker</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/Logo wheel.jpg') }}" type="image/x-icon">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_f.css') }}">
+{% endblock %}
+
+{% block body %}
+<header class="hero">
+    <nav class="nav container">
+        <div class="nav__logo">
+            <h2 class="nav__title">Wheel tracker</h2>
+        </div>
+
+        <ul class="nav__link nav__link--menu">
+            <li class="nav__items">
+                <a href="{{ url_for('home') }}" class="nav__links">Home</a>
+            </li>
+            <li class="nav__items">
+                <a href="{{ url_for('busqueda') }}" class="nav__links">Busqueda</a>
+            </li>
+            <li id = "li_contacto" class="nav__items">
+                <a class="nav__links">Contacto</a>
+            </li>
+            <li class="nav__items" id="li_inicio-ses">
+                <a href="{{ url_for('iniciar_sesion') }}" class="nav__links">Iniciar sesión</a>
+            </li>
+
+            <img src="" class="nav__close" alt="">
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class = "seccion-formulario-r">
+        <form method="post" class="formulario">
+            <label>
+                * Usuario:
+            </label>
+            <input type="text" id="usuario" name="usuario" maxlength="20" required>
+            <label>
+                * Contraseña:
+            </label>
+            <input type="password" id="cont" name="cont" maxlength="30" required>
+            <img src="./static/images/eye-icon.png" alt="" onclick="passwordView()" class="formulario_img">
+            <label>
+                Correo:
+            </label>
+            <input type="text" id="corr" name="corr" maxlength="254">
+            <label>
+                * Primer nombre:
+            </label>
+            <input type="text" id="nm1" name="nm1" maxlength="30" required>
+            <label>
+                Segundo nombre:
+            </label>
+            <input type="text" id="nm2" name="nm2" maxlength="30">
+            <label>
+                * Primer apellido:
+            </label>
+            <input type="text" id="ap1" name="ap1" maxlength="30" required>
+            <label>
+                Segundo apellido:
+            </label>
+            <input type="text" id="ap2" name="ap2" maxlength="30">
+            <button type="submit" class = "button">
+                Registrarse
+            </button>
+            <br><br/>
+            <p>
+                Ya tienes cuenta? 
+            </p>
+            <li id="li_registro" class="formulario_link">
+                
+                <a href="{{ url_for('iniciar_sesion') }}" class="formulario_a">
+                    Inicia sesión
+                </a>
+            </li>
+        </form>
+    </div>
+</main>
+<footer class="footer">
+    <section class="footer__container container">
+        <div class="logofinal">
+            <img src="./static/images/wheepequeño.jpg" alt="" class="footer__logofinal">
+        </div>
+      
+    </section>
+
+    <section id="contact-section" class="footer__copy container">
+        <div class="footer__social">
+            <a href="#" class="footer__icons"><img src="./static/images/facebookl.svg" class="footer__img"></a>
+            <a href="#" class="footer__icons"><img src="./static/images/instagram.svg" class="footer__img"></a>
+        
+        </div>
+        <div class="nombres">
+            <p class="nombres">
+                Juan Caballero,
+                Santiago Donado,
+                Julio Escobar,
+                Jorge Valencia.
+            </p>
+        </div>
+        <h3 class="footer__email"> trackerwheel&#64;gmail.com </h3>
+        <h3 class="footer__copyright"> Derechos reservados &copy; Wheel tracker </h3>
+    </section>
+</footer>
+<script src="./static/js/registro.js"></script>
+{% endblock %}

@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --padding-container: 100px 0;
+    --color-title: #0b0f35;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1E1E2A;
+    color: white;
+}
+
+main {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: #1E1E2A;
+}
+
+div.pager {
+    text-align: center;
+    margin: 1em 0;
+    max-width: 80%;
+}
+
+div.pager span {
+    display: inline-block;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8;
+    text-align: center;
+    cursor: pointer;
+    background: #2c2e3d;
+    color: #fff;
+    margin-right: 0.5em;
+}
+
+div.pager span.active {
+    background: #8d8fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    background-color: #2c2e3d;
+    color: #fff;
+    text-align: center;
+    margin-top: -20px;
+    height:110px;
+    padding: 1em 0;
+    border-radius: 10px;
+}
+
+.saludo{
+    position: absolute;
+    left:450px;
+    font-size: 22px;
+    color:#8d8fff;
+}
+
+hr { 
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid white;
+    background-color: #1E1E2A;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+input:hover{
+    transform: scale(1.03);
+}
+
+
+label {
+    font-family: 'Arial Narrow', Arial;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+/* Nav */
+
+.nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo{
+    margin-left: 17px;
+    color:#8d8fff;
+    font-size: 26px;
+}
+
+.nav__title {
+    font-weight: 300;
+}
+
+.nav__link {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+    cursor: pointer;
+}
+
+.nav__items {
+    list-style: none;
+}
+
+.nav__links {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__links:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav__links::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: #FFF;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav__menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+.nav__img {
+    display: block;
+    width: 30px;
+}
+
+
+.nav__close {
+    display: var(--show, none);
+}
+
+button {
+    margin-top: 20px;
+    position: relative;
+    background: linear-gradient(to right, #005064, #440072);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #1E1E2A;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.4s;
+}
+  
+button:hover {
+    border-color: #fff;
+}
+
+.boton_u{
+    background: linear-gradient(to right, #005064, #003f72);
+}
+
+.boton_d{
+    background: linear-gradient(to right, #003f72, #080072);
+}
+
+.boton_c{
+    background: linear-gradient(to right, #080072, #440072);
+}
+
+.botones {
+    margin-top: 20px;
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse; 
+    width: 80%;
+    background: linear-gradient(to right, #2a4963, #40315e);
+    color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #1E1E2A;
+    border-bottom: 1px solid #ddd;
+}
+
+tr {
+    background-color: #1E1E2A;
+    border: none; 
+}
+
+tr:hover{
+    background-color: #2b2b3b;
+}
+
+tr:focus{
+    background-color: #3a3a50;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white; 
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    color: white; 
+    background-color: #333; 
+    border: 1px solid #fff; 
+    border-radius: 5px;
+}
+
+/* Popup*/
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    font-weight: 300;
+    margin-top: 100px;
+    background-color: #1E1E2A;
+    color: #CCC;
+    padding: 60px;
+    border-radius: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.popup-label{
+    font-family: 'Poppins';
+    font-weight: 300;
+}
+
+.popup-text{
+    font-weight: 300;
+    background-color: rgb(25, 25, 34);
+    height: 50px;
+    width: 275px;
+    position: relative;
+    color:#fff;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Footer */
+
+.footer{
+    background-color: #1E1E2A;
+}
+
+.footer__title{
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.footer__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 60px;
+}
+
+.nav--footer{
+    padding-bottom: 20px;
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
+    height: 100%;
+}
+
+.nav__link--footer{
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    flex-wrap: wrap;
+}
+
+.footer__inputs{
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.footer__input{
+    background-color: #fff;
+    height: 50px;
+    display: block;
+    padding-left: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-right: 16px;
+}
+
+
+.footer__copy{
+    --padding-container: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer__copyright{
+    font-weight: 300;
+}
+
+.footer__icons{
+    margin-bottom: 10px;
+}
+
+.footer__img{
+    width: 30px; 
+}
+
+.footer__logofinal{
+    border-radius: 10px;
+}
+
+.footer__email{
+    font-weight: 300;
+}
