@@ -10,12 +10,14 @@
 {% block body %}
 <header class="hero">
     <nav class="nav container">
-        <div class="nav__logo">
-            <h2 class="nav__title">Wheel tracker</h2>
+        <div class="nav__saludo">
+            <div class="nav__logo">
+                <h2 class="nav__title">Wheel tracker</h2>
+            </div>
+            {% if g.user %}
+                <p class="saludo">Hola, {{ g.user[5] }}!</p>
+            {% endif %}
         </div>
-        {% if g.user %}
-            <p class="saludo">Hola, {{ g.user[5] }}!</p>
-        {% endif %}
         <ul class="nav__link nav__link--menu">
             <li class="nav__items">
                 <a href="{{ url_for('home') }}" class="nav__links">Home</a>

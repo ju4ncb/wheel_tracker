@@ -1,158 +1,184 @@
-{% extends 'base.html' %}
-
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Wheel tracker</title>
-<link rel="shortcut icon" href="{{ url_for('static', filename='images/Logo wheel.jpg') }}" type="image/x-icon">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_h.css') }}">
-{% endblock %}
-
-{% block body %}
+<link
+  rel="shortcut icon"
+  href="{{ url_for('static', filename='images/Logo wheel.jpg') }}"
+  type="image/x-icon"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/normalize.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/estilos_h.css') }}"
+/>
+{% endblock %} {% block body %}
 <header class="hero">
-    <nav class="nav container">
-        <div class="nav__logo">
-            <h2 class="nav__title">Wheel tracker</h2>
-        </div>
-        {% if g.user %}
-            <p class="saludo">Hola, {{ g.user[5] }}!</p>
-        {% endif %}
-        <ul class="nav__link nav__link--menu">
-            <li class="nav__items">
-                <a class="nav__links">Home</a>
-            </li>
-            <li class="nav__items">
-                <a href="{{ url_for('busqueda') }}" class="nav__links">Busqueda</a>
-            </li>
-            <li id = "li_contacto" class="nav__items">
-                <a class="nav__links">Contacto</a>
-            </li>
-            {% if g.user %}
-                <li class="nav__items" id="li_inicio-ses">
-                    <a href="{{ url_for('cerrar_sesion') }}" class="nav__links">
-                        Cerrar sesión
-                    </a>
-                </li>
-            {% else %}
-                <li class="nav__items" id="li_inicio-ses">
-                    <a href="{{ url_for('iniciar_sesion') }}" class="nav__links">
-                        Iniciar sesión
-                    </a>
-                </li>
-            {% endif %}
+  <nav class="nav container">
+    <div class="nav__saludo">
+      <div class="nav__logo">
+        <h2 class="nav__title">Wheel tracker</h2>
+      </div>
+      {% if g.user %}
+      <p class="saludo">Hola, {{ g.user[5] }}!</p>
+      {% endif %}
+    </div>
+    <ul class="nav__link nav__link--menu">
+      <li class="nav__items">
+        <a class="nav__links">Home</a>
+      </li>
+      <li class="nav__items">
+        <a href="{{ url_for('busqueda') }}" class="nav__links">Busqueda</a>
+      </li>
+      <li id="li_contacto" class="nav__items">
+        <a class="nav__links">Contacto</a>
+      </li>
+      {% if g.user %}
+      <li class="nav__items" id="li_inicio-ses">
+        <a href="{{ url_for('cerrar_sesion') }}" class="nav__links">
+          Cerrar sesión
+        </a>
+      </li>
+      {% else %}
+      <li class="nav__items" id="li_inicio-ses">
+        <a href="{{ url_for('iniciar_sesion') }}" class="nav__links">
+          Iniciar sesión
+        </a>
+      </li>
+      {% endif %}
 
-            <img src="" class="nav__close" alt="">
-        </ul>
-    </nav>
+      <img src="" class="nav__close" alt="" />
+    </ul>
+  </nav>
 </header>
 
 <main>
-    <section class="knowledge">
-        <div class="knowledge__container container">
-            <div class="knowledege__texts">
-                <h2 class="subtitle">Conoce acerca de nosotros!</h2>
-                <p class="knowledge__paragraph">Nuestro proyecto busca ofrecer un software que proporcione a nuestros clientes una recomendación de llantas a sus vehículos, basándonos en ciertas características que posean su automóvil calculando un nivel de compatibilidad entre las características del vehículo y las necesidades del cliente, y las características de las llantas con el objetivo de brindarles las mejores opciones de llantas que se ajusten a sus demandas.
-                </p>
-            </div>
-
-            <figure class="knowledge__picture">
-                <img src="./static/images/Vehiculos.jpg" class="knowledge__img">
-            </figure>
-        </div>
-    </section>
-
-    <section class="questions container">
-        <h2 class="subtitle">Preguntas frecuentes</h2>
-        <p class="questions__paragraph">Descubre aqui algunas dudas frecuentes acerca
-            de nuestro proyecto
+  <section class="knowledge">
+    <div class="knowledge__container container">
+      <div class="knowledege__texts">
+        <h2 class="subtitle">Conoce acerca de nosotros!</h2>
+        <p class="knowledge__paragraph">
+          Nuestro proyecto busca ofrecer un software que proporcione a nuestros
+          clientes una recomendación de llantas a sus vehículos, basándonos en
+          ciertas características que posean su automóvil calculando un nivel de
+          compatibilidad entre las características del vehículo y las
+          necesidades del cliente, y las características de las llantas con el
+          objetivo de brindarles las mejores opciones de llantas que se ajusten
+          a sus demandas.
         </p>
+      </div>
 
-        <section class="questions__container">
-            <article class="questions__padding">
-                <div class="questions__answer">
-                    <h3 class="questions__title">¿Cómo determina el software la compatibilidad entre las 
-                        características del vehículo, las necesidades del cliente y las características de las llantas?
-                        <span class="questions__arrow">
-                            <img src="./static/images/arrow.svg" class="questions__img">
-                        </span>
-                    </h3>
+      <figure class="knowledge__picture">
+        <img src="./static/images/Vehiculos.jpg" class="knowledge__img" />
+      </figure>
+    </div>
+  </section>
 
-                    <p class="questions__show">Nuestro software utiliza un algoritmo avanzado que considera 
-                        múltiples factores. Analiza las especificaciones del vehículo, como el modelo, año, 
-                        diámetro de rin, ancho de neumático, condiciones económicas y preferencias del cliente. 
-                        Además, compara estas especificaciones con la base de datos de llantas disponibles, 
-                        evaluando su rendimiento, durabilidad, resistencia, y su impacto ambiental. Utiliza 
-                        un enfoque integral para ofrecer recomendaciones precisas y ajustadas a las necesidades 
-                        individuales del cliente y las capacidades de su vehículo.
-                    </p>
-                </div>
-            </article>
+  <section class="questions container">
+    <h2 class="subtitle">Preguntas frecuentes</h2>
+    <p class="questions__paragraph">
+      Descubre aqui algunas dudas frecuentes acerca de nuestro proyecto
+    </p>
 
-            <article class="questions__padding">
-                <div class="questions__answer">
-                    <h3 class="questions__title">¿Cómo interactúan los usuarios con el software?
-                        <span class="questions__arrow">
-                            <img src="./static/images/arrow.svg" class="questions__img">
-                        </span>
-                    </h3>
+    <section class="questions__container">
+      <article class="questions__padding">
+        <div class="questions__answer">
+          <h3 class="questions__title">
+            ¿Cómo determina el software la compatibilidad entre las
+            características del vehículo, las necesidades del cliente y las
+            características de las llantas?
+            <span class="questions__arrow">
+              <img src="./static/images/arrow.svg" class="questions__img" />
+            </span>
+          </h3>
 
-                    <p class="questions__show">Hemos desarrollado una interfaz gráfica de usuario amigable 
-                        accesible a través de una página web. Los usuarios pueden ingresar los detalles de 
-                        su vehículo, como marca, modelo, año, así como sus preferencias personales, si
-                        busca calidad u opciones económicas. A partir de esta información, el software 
-                        genera recomendaciones personalizadas de llantas compatibles con las necesidades 
-                        del usuario.
-                    </p>
-                </div>
-            </article>
+          <p class="questions__show">
+            Nuestro software utiliza un algoritmo avanzado que considera
+            múltiples factores. Analiza las especificaciones del vehículo, como
+            el modelo, año, diámetro de rin, ancho de neumático, condiciones
+            económicas y preferencias del cliente. Además, compara estas
+            especificaciones con la base de datos de llantas disponibles,
+            evaluando su rendimiento, durabilidad, resistencia, y su impacto
+            ambiental. Utiliza un enfoque integral para ofrecer recomendaciones
+            precisas y ajustadas a las necesidades individuales del cliente y
+            las capacidades de su vehículo.
+          </p>
+        </div>
+      </article>
 
-            <article class="questions__padding">
-                <div class="questions__answer">
-                    <h3 class="questions__title">¿Cómo priorizan las opciones respetuosas con el medioambiente 
-                        en las recomendaciones de llantas?
-                        <span class="questions__arrow">
-                            <img src="./static/images/arrow.svg" class="questions__img">
-                        </span>
-                    </h3>
+      <article class="questions__padding">
+        <div class="questions__answer">
+          <h3 class="questions__title">
+            ¿Cómo interactúan los usuarios con el software?
+            <span class="questions__arrow">
+              <img src="./static/images/arrow.svg" class="questions__img" />
+            </span>
+          </h3>
 
-                    <p class="questions__show">Nuestro algoritmo considera criterios ecológicos al recomendar 
-                        llantas. Se evalúan factores como el material de fabricación, la eficiencia en el 
-                        consumo de combustible, la durabilidad y la capacidad de reciclaje de las llantas. 
-                        Priorizamos aquellas opciones que minimizan la huella de carbono durante su ciclo 
-                        de vida, fomentando la sostenibilidad y apoyando la lucha contra el cambio climático.
-                    </p>
-                </div>
-            </article>
-        </section>
+          <p class="questions__show">
+            Hemos desarrollado una interfaz gráfica de usuario amigable
+            accesible a través de una página web. Los usuarios pueden ingresar
+            los detalles de su vehículo, como marca, modelo, año, así como sus
+            preferencias personales, si busca calidad u opciones económicas. A
+            partir de esta información, el software genera recomendaciones
+            personalizadas de llantas compatibles con las necesidades del
+            usuario.
+          </p>
+        </div>
+      </article>
+
+      <article class="questions__padding">
+        <div class="questions__answer">
+          <h3 class="questions__title">
+            ¿Cómo priorizan las opciones respetuosas con el medioambiente en las
+            recomendaciones de llantas?
+            <span class="questions__arrow">
+              <img src="./static/images/arrow.svg" class="questions__img" />
+            </span>
+          </h3>
+
+          <p class="questions__show">
+            Nuestro algoritmo considera criterios ecológicos al recomendar
+            llantas. Se evalúan factores como el material de fabricación, la
+            eficiencia en el consumo de combustible, la durabilidad y la
+            capacidad de reciclaje de las llantas. Priorizamos aquellas opciones
+            que minimizan la huella de carbono durante su ciclo de vida,
+            fomentando la sostenibilidad y apoyando la lucha contra el cambio
+            climático.
+          </p>
+        </div>
+      </article>
     </section>
+  </section>
 </main>
 <footer class="footer">
-    <section class="footer__container container">
-        <nav class="nav nav--footer">
-            <h2 class="footer__title">Wheel tracker.</h2>
-        </nav>
-        <div class="logofinal">
-            <img src="images/wheepequeño.jpg" alt="" class="footer__logofinal">
-        </div>
-      
-    </section>
+  <section class="footer__container container">
+    <nav class="nav nav--footer">
+      <h2 class="footer__title">Wheel tracker.</h2>
+    </nav>
+    <div class="logofinal">
+      <img src="images/wheepequeño.jpg" alt="" class="footer__logofinal" />
+    </div>
+  </section>
 
-    <section id="contact-section" class="footer__copy container">
-        <div class="footer__social">
-            <a href="#" class="footer__icons"><img src="./static/images/facebookl.svg" class="footer__img"></a>
-            <a href="#" class="footer__icons"><img src="./static/images/instagram.svg" class="footer__img"></a>
-        
-        </div>
-        <div class="nombres">
-            <p class="nombres">
-                Juan Caballero,
-                Santiago Donado,
-                Julio Escobar,
-                Jorge Valencia.
-            </p>
-        </div>
-        <h3 class="footer__email"> trackerwheel&#64;gmail.com </h3>
-        <h3 class="footer__copyright"> Derechos reservados &copy; Wheel tracker </h3>
-    </section>
+  <section id="contact-section" class="footer__copy container">
+    <div class="footer__social">
+      <a href="#" class="footer__icons"
+        ><img src="./static/images/facebookl.svg" class="footer__img"
+      /></a>
+      <a href="#" class="footer__icons"
+        ><img src="./static/images/instagram.svg" class="footer__img"
+      /></a>
+    </div>
+    <div class="nombres">
+      <p class="nombres">
+        Juan Caballero, Santiago Donado, Julio Escobar, Jorge Valencia.
+      </p>
+    </div>
+    <h3 class="footer__email">trackerwheel&#64;gmail.com</h3>
+    <h3 class="footer__copyright">Derechos reservados &copy; Wheel tracker</h3>
+  </section>
 </footer>
 <script src="./static/js/home.js"></script>
 {% endblock %}
